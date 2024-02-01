@@ -1,13 +1,81 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  height: 100vh;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  background: gray;
+  width: 20rem;
+  padding:2rem;
+  border-radius: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.screen {
+  height: 4rem;
+  margin-bottom: 4rem;
+}
+
+.buttonBox {
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: .5rem
+}
+
+.button {
+  background: 3.5rem;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #242424;
+  border: 2px solid black;
+  font-size: 1.5rem
+}
+
+.button:hover{
+  background-color: #A0A0A0;
+}
+
+.button:active{
+  background-color: #CCCCCC;
+}
+
+.equals {
+  background: #8FBF73;
+  grid-column: 3/5;
+}
+
+.equals:hover{
+  background-color: #B4D18B;
+}
+
+.equals:active{
+  background-color: #D2EDC1;
+}
+
+.opt {
+  background: #FFA500;
+
+}
+
+.opt:hover{
+  background-color: #FFC04D;
+}
+
+.opt:active{
+  background-color: #FFD699;
 }
