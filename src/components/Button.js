@@ -4,10 +4,14 @@ import { CalcContext } from "../context/CalcContext"
 const getStyleName = bttn => {
   const className = {
     '=': 'equals',
+    '^': 'opt',
+    '%': 'opt',
+    '+-': 'opt',
+    '/': 'opt',
+    '+': 'opt',
     'x': 'opt',
     '-': 'opt',
-    '+': 'opt',
-    '/': 'opt',
+    'C': 'clear',
 
   }
   return className[bttn]
@@ -45,8 +49,8 @@ const Button = ({value}) => {
     })
   }
 
-  // when user clicks operation
-  const signClick = () => {
+  // when user clicks an operation
+  const operationClick = () => {
     setCalc({
       sign: value,
       res: !calc.res && calc.num ? calc.num : calc.res,
@@ -59,10 +63,12 @@ const Button = ({value}) => {
     if (calc.res && calc.num) {
       const math = (a, b, sign) => {
         const result = {
+          '^': (a,b) => a**b,
+          '%': (a,b) => a%b,
+          '/': (a,b) => a/b,
+          'x': (a,b) => a*b,
           '+': (a,b) => a+b,
           '-': (a,b) => a-b,
-          'x': (a,b) => a*b,
-          '/': (a,b) => a/b,
         }
         return result[sign](a,b);
       }
@@ -75,15 +81,6 @@ const Button = ({value}) => {
   }
 }
   
-  // when user clicks percent
-  const percentClick = () => {
-    setCalc({
-      num: (calc.num / 100),
-      res: (calc.res / 100),
-      sign: ''
-    })
-  }
-
   // when user clicks invert
   const invertClick = () => {
     setCalc({
@@ -98,13 +95,14 @@ const Button = ({value}) => {
     const results = {
       '.': commaClick,
       'C': resetClick,
-      '/': signClick,
-      'x': signClick,
-      '-': signClick,
-      '+': signClick,
+      '^': operationClick,
+      '%': operationClick,
+      '+-': invertClick,
+      '/': operationClick,
+      'x': operationClick,
+      '+': operationClick,
+      '-': operationClick,
       '=': equalsClick,
-      // '%': percentClick,
-      // '+-': invertClick,
     }  
     if (results[value]) {
       return results[value]()

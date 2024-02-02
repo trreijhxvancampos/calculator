@@ -56,7 +56,6 @@ body {
 
 .equals {
   background: #8FBF73;
-  grid-column: 3/5;
 }
 
 .equals:hover{
@@ -69,6 +68,11 @@ body {
 
 .opt {
   background: #FFA500;
+
+}
+
+.clear {
+  color: white;
 
 }
 
